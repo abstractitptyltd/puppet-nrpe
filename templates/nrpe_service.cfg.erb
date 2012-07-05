@@ -1,0 +1,1 @@
+command[check_<%= name %>]=<% if sudo == true %>/usr/bin/sudo <% end %><% if plugin == "main" %><%= nagios_plugins %><% else %><%= nagios_extra_plugins %><% end %>/<%= check_command %>
