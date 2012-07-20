@@ -9,7 +9,7 @@ define nrpe::plugin ( $ensure = 'present', $plugin = "main", $check_command, $su
 		owner   => root,
 		group   => root,
 		mode	=> 644,
-		content => template("monitoring/nrpe_service.cfg.erb"),
+		content => template("nrpe/nrpe_service.cfg.erb"),
 		notify	=> Class['nrpe::service'],
 	}
 }
