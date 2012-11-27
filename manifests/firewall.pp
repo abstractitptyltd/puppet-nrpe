@@ -1,5 +1,7 @@
 class nrpe::firewall {
 
+  include firewall
+
 	firewall::rule { 'nrpe':
 		proto	=> 'tcp',
 		source	=> $nagios_ip,

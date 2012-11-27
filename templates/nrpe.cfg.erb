@@ -29,7 +29,7 @@ server_port=5666
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_user=nagios
+nrpe_user=<%= nrpe_user %>
 
 # NRPE GROUP
 # This determines the effective group that the NRPE daemon should run as.
@@ -37,7 +37,7 @@ nrpe_user=nagios
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_group=nagios
+nrpe_group=<%= nrpe_group %>
 
 # ALLOWED HOST ADDRESSES
 # This is an optional comma-delimited list of IP address or hostnames

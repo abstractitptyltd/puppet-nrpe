@@ -1,7 +1,7 @@
 class nrpe::service {
 	include nrpe::params
 
-	service { "nrpe":
+	service { 'nrpe':
 		name		=> $nrpe::params::nrpe_service,
 		ensure		=> running,
 		enable		=> true,

@@ -1,10 +1,11 @@
 
 class nrpe::config {
 
-	include users::virtual
 	include nrpe::params
 
 	$pid_file = $nrpe::params::pid_file
+	$nrpe_user = $nrpe::params::nrpe_user
+	$nrpe_group = $nrpe::params::nrpe_group
 #	$nagios_extra_plugins = $nrpe::params::nagios_extra_plugins
 #	$nagios_plugins = $nrpe::params::nagios_plugins
 
@@ -29,9 +30,6 @@ class nrpe::config {
 		group	=> nagios,
 		mode	=> 644,
 		content	=> template('monitoring/send_nsca.cfg.erb'),
-	}
-	File {
-		require	=> Class['nrpe::install'],
 	}
 
 }
