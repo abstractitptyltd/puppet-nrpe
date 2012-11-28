@@ -2,7 +2,7 @@
 define nrpe::plugin ( $ensure = 'present', $plugin = "main", $check_command, $sudo = false ) {
 
 	include nrpe::params
-  $nagios_extra_plugins = $nrpe::params::nagios_extra_plugins
+  #  $nagios_extra_plugins = $nrpe::params::nagios_extra_plugins
 
 	file { "nrpe_plugin_${name}":
 		ensure	=> $ensure,
