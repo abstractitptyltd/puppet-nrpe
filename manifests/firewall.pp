@@ -1,5 +1,7 @@
 class nrpe::firewall {
 
+  # this won't work right now because it uses another of my modules that i need to release
+/*
   include firewall
 
 	firewall::rule { 'nrpe':
@@ -18,5 +20,5 @@ class nrpe::firewall {
 			jump	=> 'ACCEPT',
 		}
 	}
-
+*/
 }

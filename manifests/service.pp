@@ -7,7 +7,6 @@ class nrpe::service {
 		enable		=> true,
 		hasstatus	=> $operatingsystem ? { default => true, Debian => false },
 		hasrestart	=> true,
-#		subscribe	=> Class['nrpe::config'],
 		require		=> Class['nrpe::install'],
 	}
 }

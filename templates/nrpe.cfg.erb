@@ -14,7 +14,7 @@ pid_file=<%= pid_file %>
 # NOTE: This must be a non-priviledged port (i.e. > 1024).
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-server_port=5666
+server_port=<%= port %>
 
 # SERVER ADDRESS
 # Address that nrpe should bind to in case there are more than one interface
@@ -29,7 +29,7 @@ server_port=5666
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_user=<%= nrpe_user %>
+nrpe_user=<%= user %>
 
 # NRPE GROUP
 # This determines the effective group that the NRPE daemon should run as.
@@ -37,7 +37,7 @@ nrpe_user=<%= nrpe_user %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-nrpe_group=<%= nrpe_group %>
+nrpe_group=<%= group %>
 
 # ALLOWED HOST ADDRESSES
 # This is an optional comma-delimited list of IP address or hostnames
@@ -50,7 +50,7 @@ nrpe_group=<%= nrpe_group %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-allowed_hosts=127.0.0.1,<%= nagios_ip %><% if nagios_ip2 != "" %><%= nagios_ip2 %><% end %><% if nrpeallowedhosts != "" %>,<%= nrpeallowedhosts %><% end %>
+allowed_hosts=127.0.0.1,<%= nagios_ips %>
 
 # COMMAND ARGUMENT PROCESSING
 # This option determines whether or not the NRPE daemon will allow clients
@@ -96,7 +96,7 @@ debug=0
 # This specifies the maximum number of seconds that the NRPE daemon will
 # allow plugins to finish executing before killing them off.
 
-command_timeout=<%= nrpe_check_timeout %>
+command_timeout=<%= command_timeout %>
 
 # CONNECTION TIMEOUT
 # This specifies the maximum number of seconds that the NRPE daemon will
@@ -132,16 +132,4 @@ connection_timeout=300
 
 # include the extra service check dir
 include_dir=/etc/nrpe.d/
-
-#command[check_nfsmounts]=<%= nagios_extra_plugins %>/check_nfsmounts
-#command[check_zombie_procs]=<%= nagios_plugins %>/check_procs -w 5 -c 10 -s Z
-#command[check_db_ssh_tunnel]=<%= nagios_plugins %>/check_procs -w 1:1 -c 1:1 -C ssh -a "3318:10.1.0.2:3306 deploy@servpay.com"
-## sudo commands
-#command[check_amanda_daily_suid]=<%= nagios_extra_plugins %>/check_amanda_suid.pl daily
-#command[check_amanda_daily]=<%= nagios_extra_plugins %>/check_amanda_suid.pl daily
-
-<% if has_variable?("nrpedbserver") %>
-#command[check_dbserver]=<%= nagios_plugins %>/check_icmp -H <%= nrpedbserver %> -n 1
-#command[check_mysql_server]=<%= nagios_plugins %>/check_mysql -u nagios -p <%= nagios_db_password %> -H <%= nrpedbserver %> -P 3306
-<% end %>
 
