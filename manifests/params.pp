@@ -3,11 +3,11 @@ class nrpe::params (
   $group = 'nrpe',
   $port = 5666,
   $nagios_ips, # comma separated list of ips that can talk to nrpe
-  $nagios_extra_plugins = undef, # directory for non standard nagios scripts
   $command_timeout = 180,
 )
 {
   $nagios_plugins = $architecture ? { 'x86_64' => '/usr/lib64/nagios/plugins', default => '/usr/lib/nagios/plugins'}
+  $nagios_extra_plugins = hiera('monitoring::nagios_extra_plugins', undef)
   case $operatingsystem {
     default: {
       $nrpe_package = 'nrpe'
