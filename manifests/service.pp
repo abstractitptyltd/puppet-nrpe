@@ -3,6 +3,7 @@ class nrpe::service {
 
   service { 'nrpe':
     name => $nrpe::params::nrpe_service,
+    provider => $nrpe::params::nrpe_provider,
     ensure => running,
     enable => true,
     hasstatus => $operatingsystem ? { default => true, Debian => false },

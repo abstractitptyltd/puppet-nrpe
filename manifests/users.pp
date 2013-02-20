@@ -1,5 +1,6 @@
 class nrpe::users {
 
+  /*
   group { 'nagcmd':
     ensure => present,
     gid => 401,
@@ -42,5 +43,6 @@ class nrpe::users {
     require => Group[nagios],
     tag => ['nagios']
   }
+  */
 }
 

@@ -1,24 +1,16 @@
 class nrpe::firewall {
 
-  # this won't work right now because it uses another of my modules that i need to release
-/*
-  include firewall
+  include nrpe::params
+  $nagios_ips = split($nrpe::params::nagios_ip, ',')
 
-  firewall::rule { 'nrpe':
-    proto => 'tcp',
-    source => $nagios_ip,
-    dport => 5666,
-    state => 'NEW',
-    jump => 'ACCEPT',
-  }
-  if $nagios_ip2 != '' {
-    firewall::rule { 'nrpe2':
+  if $nrpe::params::firewall {
+    firewall { '100 nrpe rules':
       proto => 'tcp',
-      source => $nagios_ip2,
+      source => $nagios_ips,
       dport => 5666,
       state => 'NEW',
-      jump => 'ACCEPT',
+      action => 'accept',
     }
   }
-*/
+
 }
