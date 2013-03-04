@@ -1,5 +1,5 @@
 name 'rendhalver-nrpe'
-version '1.0.2'
+version '1.0.3'
 summary 'manage nrpe service and service checks'
 description "manage nrpe service and plugins with puppet
     It manages the main nrpe service.
