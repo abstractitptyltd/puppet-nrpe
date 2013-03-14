@@ -1,5 +1,5 @@
 
-define nrpe::plugin ( $ensure = 'present', $plugin = "main", $check_command, $sudo = false ) {
+define nrpe::plugin ( $ensure = 'present', $plugin = "main", $check_command, $command_args = '', $sudo = false ) {
 
   include nrpe::params
   $nagios_plugins = $nrpe::params::nagios_plugins
@@ -13,5 +13,18 @@ define nrpe::plugin ( $ensure = 'present', $plugin = "main", $check_command, $su
     mode => 644,
     content => template("nrpe/nrpe_service.cfg.erb"),
     notify => Class['nrpe::service'],
+  }
+  if $sudo == true {
+    # setup sudo rules for this command
+    if defined(Sudo::Rule["nrpe_${name}"]) {
+      # don't set this up again
+    } else {
+    sudo::rule { "nrpe_${name}":
+      ensure => $ensure,
+      who => 'nrpe',
+      commands => $plugin ? { "main" => "${nagios_plugins}/${check_command}", default => "${nagios_extra_plugins}/${check_command}" },
+      nopass => true,
+    }
+    }
   }
 }

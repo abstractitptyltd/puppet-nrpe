@@ -3,6 +3,7 @@ nrpe
 Overview
 
 Puppet module for managing nrpe and service checks.
+New docs are are in the next release.
 
 
 License
