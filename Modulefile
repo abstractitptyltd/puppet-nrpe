@@ -5,7 +5,7 @@ description "manage nrpe service and plugins with puppet
     It manages the main nrpe service.
     The nrpe::plugin define allows the adding of new services checks."
 project_page 'https://github.com/rendhalver/puppet-nrpe'
-licence 'GPLv3'
+license 'GPLv3'
 dependency 'puppetlabs/firewall', '>=0.0.4'
 dependency 'puppetlabs/stdlib', '>=0.0.1'
 dependency 'rendhalver/monitoring', '>=1.0.3'
