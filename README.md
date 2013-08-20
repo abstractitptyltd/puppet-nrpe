@@ -66,8 +66,8 @@ Usage
 
 ### nrpe::plugin
 
-this type manages plugins for nrpe
-the name/title of the plugin is what you use tich check_nrpe to check the command
+This type manages plugins for nrpe.
+The name/title of the plugin is the name of the check for `check_nrpe`
 
 **Parameters within nrpe::plugin**
 
@@ -78,11 +78,11 @@ Whether the plugin should exist or not (present is the default)
 #### `plugin`
 
 where to find the plugin. main is the standard nagios plugin directory
-anything else will use the location defined in the hiera variable monitoring::nagios_extra_plugins
+anything else will use the location defined in the hiera variable `monitoring::nagios_extra_plugins`
 
 #### `check_command`
 
-the command to run (args for the command go in command_args)
+the command to run (args for the command go in `command_args`)
 This is so I can setup sudo rules for the commands that need it
 
 #### `command_args`
@@ -112,6 +112,14 @@ If you wish to join in let me know.
 
 Release Notes
 -------------
+
+**1.1.2**
+
+fixing packages for Fedora 19
+
+**1.1.1**
+
+fixing class chaining
 
 **1.1.0**
 
