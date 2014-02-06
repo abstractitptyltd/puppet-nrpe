@@ -5,10 +5,10 @@ class nrpe::firewall {
 
   if $nrpe::params::firewall {
     firewall { '100 nrpe rules':
-      proto => 'tcp',
+      proto  => 'tcp',
       source => $nagios_ips,
-      dport => 5666,
-      state => 'NEW',
+      dport  => 5666,
+      state  => 'NEW',
       action => 'accept',
     }
   }

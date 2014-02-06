@@ -1,8 +1,9 @@
-nrpe
+abstractit-nrpe
 ====
 
 ####Table of Contents
 
+0. [New stuff and bug fixes](#new)
 1. [Overview - What is the nrpe module?](#overview)
 2. [Module Description - What does the module do?](#module-description)
 3. [Setup - The basics of getting started with nrpe](#setup)
@@ -11,6 +12,13 @@ nrpe
 6. [Limitations - OS compatibility, etc.](#limitations)
 7. [Development - Guide for contributing to the module](#development)
 8. [Release Notes - Notes on the most recent updates to the module](#release-notes)
+
+New stuff and bug fixes
+-----------------------
+
+I recently started a consulting company called Abstract IT Pty Ltd. I have transfered ownership of all my puppet modules to a new organisation on Puppet Forge called abstractit.
+I am making one final release of my modules under rendhalver and abstractit to give you a chance to switch over to the new organisation.
+I have also added a licence. All my modules will be licenced under Apache v2.
 
 Overview
 --------
@@ -38,6 +46,10 @@ Setup
 This will manage a basic setup for nrpe.
 
     include nrpe
+
+If you are using abstractit-monitoring include this class as well.
+
+    include nrpe::monitoring
 
 Defaults for vars to set if you need them.
 These are class params so use hiera or and ENC to set them up easily.
@@ -78,7 +90,7 @@ Whether the plugin should exist or not (present is the default)
 #### `plugin`
 
 where to find the plugin. main is the standard nagios plugin directory
-anything else will use the location defined in the hiera variable `monitoring::nagios_extra_plugins`
+anything else will use the location defined in the variable `nrpe::params::nagios_extra_plugins` which defaults to `nrpe::params::nagios_plugins`
 
 #### `check_command`
 
@@ -112,6 +124,12 @@ If you wish to join in let me know.
 
 Release Notes
 -------------
+
+**1.1.3**
+
+Final release for rendhalver-nrpe.
+First release as abstractit-nrpe.
+Removed dependency on abstractit-monitoring to avoid cyclic dependencies
 
 **1.1.2**
 

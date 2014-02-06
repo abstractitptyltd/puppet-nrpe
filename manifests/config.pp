@@ -13,19 +13,19 @@ class nrpe::config {
   $command_timeout = $nrpe::params::command_timeout
 
   file { 'nrpecfg':
-    name => '/etc/nagios/nrpe.cfg',
-    owner => nagios,
-    group => nagios,
-    mode => 644,
+    name    => '/etc/nagios/nrpe.cfg',
+    owner   => nagios,
+    group   => nagios,
+    mode    => '0644',
     content => template('nrpe/nrpe.cfg.erb'),
-    notify => Class['nrpe::service'],
+    notify  => Class['nrpe::service'],
   }
 
   file { '/etc/nrpe.d':
     ensure => directory,
-    owner => nagios,
-    group => nagios,
-    mode => 644,
+    owner  => nagios,
+    group  => nagios,
+    mode   => '0644',
   }
 
 }
