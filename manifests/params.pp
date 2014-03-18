@@ -43,7 +43,7 @@ class nrpe::params (
   }
   case $::osfamily {
     RedHat: {
-      $plugin_package_list = ['perl-Nagios-Plugin','nagios-plugins-http','nagios-plugins-tcp', 'nagios-plugins-sensors', 'nagios-plugins-time', 'nagios-plugins-dig', 'nagios-plugins-rpc', 'nagios-plugins-dns','nagios-plugins-ups', 'nagios-plugins-ldap', 'nagios-plugins-nagios', 'nagios-plugins-smtp','nagios-plugins-dhcp','nagios-plugins-disk','nagios-plugins-dummy','nagios-plugins-file_age','nagios-plugins-icmp','nagios-plugins-ide_smart','nagios-plugins-load','nagios-plugins-log','nagios-plugins-mailq','nagios-plugins-ntp','nagios-plugins-perl','nagios-plugins-ping','nagios-plugins-procs','nagios-plugins-ssh','nagios-plugins-swap','nagios-plugins-users', 'nagios-plugins-check_sip','nagios-plugins-cluster','nagios-plugins-check-updates','nagios-plugins-fping','nagios-plugins-mysql','nagios-plugins-snmp','nagios-plugins-ifstatus','nagios-plugins-linux_raid']
+      $plugin_package_list = ['perl-Nagios-Plugin','nagios-plugins-all',]
     }
     Debian: {
       $plugin_package_list = ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins']
