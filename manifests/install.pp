@@ -1,7 +1,6 @@
 class nrpe::install {
 
-  include nrpe::params
-
+  include ::nrpe
 
   package { $nrpe::params::nrpe_package:
     ensure  => installed,

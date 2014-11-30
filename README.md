@@ -16,6 +16,9 @@ abstractit-nrpe
 New stuff and bug fixes
 -----------------------
 
+Initial move towards using base class as primary API for the module.
+Added metadata.json to work with newer versions of puppet
+
 I recently started a consulting company called Abstract IT Pty Ltd. I have transfered ownership of all my puppet modules to a new organisation on Puppet Forge called abstractit.
 I am making one final release of my modules under rendhalver and abstractit to give you a chance to switch over to the new organisation.
 I have also added a licence. All my modules will be licenced under Apache v2.
@@ -53,6 +56,20 @@ If you are using abstractit-monitoring include this class as well.
 
 Defaults for vars to set if you need them.
 These are class params so use hiera or and ENC to set them up easily.
+Using nrpe class
+
+    $nrpe::nagios_ips
+    # comma separated list of ip addresses that can talk to this nrpe server
+    $nrpe::user = 'nrpe'
+    # user nrpe runs as
+    $nrpe::group = 'nrpe'
+    # group nrpe will run as
+    $nrpe::command_timeout = 180
+    # timeout for nrpe checks
+    $nrpe::firewall = false
+    # whether to use puppetlabs/firewall to setup the iptables rule
+
+Using nrpe::params class
 
     $nrpe::params::user = 'nrpe'
     # user nrpe runs as
@@ -124,6 +141,12 @@ If you wish to join in let me know.
 
 Release Notes
 -------------
+
+**1.2.0**
+
+BUGFIXES: template variables (@rfray)
+Added metadata.json so it works with newer versions of puppet
+Initial move towards using base class as primary API.
 
 **1.1.3**
 

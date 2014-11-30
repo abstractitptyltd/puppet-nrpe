@@ -1,5 +1,5 @@
 class nrpe::service {
-  include nrpe::params
+  include ::nrpe
 
   service { 'nrpe':
     ensure     => running,

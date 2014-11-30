@@ -1,5 +1,5 @@
 name 'abstractit-nrpe'
-version '1.1.3'
+version '1.2.0'
 summary 'manage nrpe service and service checks'
 description "manage nrpe service and plugins with puppet
     It manages the main nrpe service.
@@ -7,5 +7,5 @@ description "manage nrpe service and plugins with puppet
 project_page 'https://github.com/abstractitptyltd/puppet-nrpe'
 license 'Apache v2 Licence'
 dependency 'puppetlabs/firewall', '>=0.0.4'
-dependency 'puppetlabs/stdlib', '>=0.0.1'
-dependency 'abstractit/sudo', '>=1.0.0'
+dependency 'puppetlabs/stdlib', '>=3.2.1'
+dependency 'abstractit/sudo', '>=1.2.1'

@@ -1,9 +1,10 @@
 class nrpe::firewall {
 
-  include nrpe::params
-  $nagios_ips = split($nrpe::params::nagios_ip, ',')
+  include ::nrpe
+  $nagios_ips = split($::nrpe::nagios_ip, ',')
+  $firewall = $::nrpe::firewall
 
-  if $nrpe::params::firewall {
+  if $firewall {
     firewall { '100 nrpe rules':
       proto  => 'tcp',
       source => $nagios_ips,

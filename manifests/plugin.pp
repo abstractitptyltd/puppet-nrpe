@@ -7,10 +7,10 @@ define nrpe::plugin (
   $sudo = false
 ) {
 
-  include nrpe::params
+  include ::nrpe
   $nagios_plugins = $nrpe::params::nagios_plugins
-  $nagios_extra_plugins = $nrpe::params::nagios_extra_plugins ? {
-    default => $nrpe::params::nagios_extra_plugins,
+  $nagios_extra_plugins = $::nrpe::nagios_extra_plugins ? {
+    default => $::nrpe::nagios_extra_plugins,
     undef   => $nagios_plugins,
   }
 
