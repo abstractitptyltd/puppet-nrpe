@@ -1,5 +1,5 @@
 name 'abstractit-nrpe'
-version '1.2.0'
+version '1.2.1'
 summary 'manage nrpe service and service checks'
 description "manage nrpe service and plugins with puppet
     It manages the main nrpe service.

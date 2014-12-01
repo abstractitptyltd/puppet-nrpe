@@ -142,6 +142,10 @@ If you wish to join in let me know.
 Release Notes
 -------------
 
+**1.2.1**
+
+BUGFIXES: set nrpe::params::nagios_ips to undef so using nrpe class works
+
 **1.2.0**
 
 BUGFIXES: template variables (@rfray)
