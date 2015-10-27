@@ -2,7 +2,7 @@
   "name": "abstractit-nrpe",
   "version": "1.2.1",
   "author": "Abstract IT",
-  "license": "Apache v2 Licence",
+  "license": "Apache-2.0",
   "summary": "manage nrpe service and service checks",
   "source": "https://github.com/abstractitptyltd/puppet-nrpe",
   "project_page": "https://github.com/abstractitptyltd/puppet-nrpe",
@@ -20,11 +20,11 @@
   "dependencies": [
     {
       "name": "puppetlabs/firewall",
-      "version_requirement": ">=0.0.4"
+      "version_requirement": ">=1.5.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=3.2.1"
+      "version_requirement": ">=4.1.0"
     },
     {
       "name": "abstractit/sudo",

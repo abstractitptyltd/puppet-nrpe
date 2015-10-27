@@ -31,7 +31,10 @@ define nrpe::plugin (
     sudo::rule { "nrpe_${name}":
       ensure   => $ensure,
       who      => 'nrpe',
-      commands => $plugin ? { "main" => "${nagios_plugins}/${check_command}", default => "${nagios_extra_plugins}/${check_command}" },
+      commands => $plugin ? {
+        'main'  => "${nagios_plugins}/${check_command}",
+        default => "${nagios_extra_plugins}/${check_command}"
+      },
       nopass   => true,
     }
     }

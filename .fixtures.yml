@@ -1,0 +1,16 @@
+fixtures:
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref:  "4.1.0"
+    firewall:
+      repo: "puppetlabs/firewall"
+      ref:  "1.5.0"
+    sudo:
+      repo: "abstractit/sudo"
+      ref:  "1.2.0"
+    concat:
+      repo: "puppetlabs/concat"
+      ref:  "1.2.0"
+  symlinks:
+    nrpe: "#{source_dir}"

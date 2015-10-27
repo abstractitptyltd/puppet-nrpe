@@ -43,19 +43,22 @@ class nrpe::params (
   }
 
   case $::osfamily {
-    RedHat : {
+    'RedHat' : {
       $plugin_package_list = [
         'perl-Nagios-Plugin',
         'nagios-plugins-all',
         ]
     }
-    Debian : {
+    'Debian' : {
       $plugin_package_list = [
         'libnagios-plugin-perl',
         'nagios-plugins-extra',
         'nagios-plugins-basic',
         'nagios-plugins-standard',
         'nagios-plugins']
+    }
+    default : {
+
     }
   }
 }
