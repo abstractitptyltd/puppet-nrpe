@@ -3,7 +3,6 @@ require 'spec_helper'
 require 'pry'
 
 describe 'nrpe::users' do
-  let(:pre_condition){ 'class{"nrpe::params":}'}
   on_supported_os({
       :hardwaremodels => ['x86_64'],
       :supported_os   => [

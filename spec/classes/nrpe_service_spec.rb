@@ -27,9 +27,9 @@ describe 'nrpe::service' do
           :concat_basedir => '/tmp',
         })
       end
-      # it { is_expected.to compile.with_all_deps }
+      it { is_expected.to compile.with_all_deps }
       context 'when fed no parameters' do
-        # it { should create_class('nrpe::service') }
+        it { should create_class('nrpe::service') }
       end#no params
     end
   end

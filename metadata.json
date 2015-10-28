@@ -29,6 +29,10 @@
     {
       "name": "abstractit/sudo",
       "version_requirement": ">=1.2.0"
+    },
+    {
+      "name": "abstractit/monitoring",
+      "version_requirement": ">=1.3.6"
     }
   ],
   "requirements": [

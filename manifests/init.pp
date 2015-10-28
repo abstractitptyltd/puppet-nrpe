@@ -8,11 +8,15 @@ class nrpe (
   $nagios_extra_plugins = $::nrpe::params::nagios_extra_plugins,
 ) inherits ::nrpe::params {
 
-  require sudo
-  class{'::nrpe::install':} ->
-  class{'::nrpe::config':} ~>
-  class{'::nrpe::service':} ->
-  class{'::nrpe::firewall':} ->
-  Class['nrpe']
+  require ::sudo
+  include ::nrpe::install
+  include ::nrpe::config
+  include ::nrpe::service
+  include ::nrpe::firewall
+
+  Class['::nrpe::install'] ->
+  Class['::nrpe::config'] ~>
+  Class['::nrpe::service'] ->
+  Class['::nrpe::firewall']
 
 }

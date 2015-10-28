@@ -2,8 +2,7 @@
 require 'spec_helper'
 require 'pry'
 
-describe 'nrpe::plugins' do
-  let(:pre_condition){ 'class{"nrpe::params":}'}
+describe 'nrpe::plugins', :type => :define do
   on_supported_os({
       :hardwaremodels => ['x86_64'],
       :supported_os   => [
@@ -27,7 +26,6 @@ describe 'nrpe::plugins' do
           :concat_basedir => '/tmp',
         })
       end
-      # it { is_expected.to compile.with_all_deps }
       context 'when fed no parameters' do
         # it { should create_class('nrpe::plugins') }
       end#no params

@@ -1,7 +1,7 @@
 class nrpe::firewall {
 
   include ::nrpe
-  $nagios_ips = split($::nrpe::nagios_ip, ',')
+  $nagios_ips = $::nrpe::nagios_ips
   $firewall = $::nrpe::firewall
 
   if $firewall {

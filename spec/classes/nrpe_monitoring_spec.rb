@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'pry'
 
 describe 'nrpe::monitoring' do
-  let(:pre_condition){ 'class{"nrpe::params":}'}
+  let(:pre_condition){ "class{'monitoring': monitoring_type => 'icinga'}"}
   on_supported_os({
       :hardwaremodels => ['x86_64'],
       :supported_os   => [

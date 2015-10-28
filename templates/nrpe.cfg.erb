@@ -50,7 +50,7 @@ nrpe_group=<%= @group %>
 #
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
-allowed_hosts=127.0.0.1,<%= @nagios_ips %>
+allowed_hosts=127.0.0.1,<%= scope.function_join([@nagios_ips],",") %>
 
 # COMMAND ARGUMENT PROCESSING
 # This option determines whether or not the NRPE daemon will allow clients

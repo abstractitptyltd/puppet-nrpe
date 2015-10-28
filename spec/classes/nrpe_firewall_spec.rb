@@ -3,7 +3,6 @@ require 'spec_helper'
 require 'pry'
 
 describe 'nrpe::firewall' do
-  let(:pre_condition){ 'class{"nrpe::params":}'}
   on_supported_os({
       :hardwaremodels => ['x86_64'],
       :supported_os   => [
@@ -27,9 +26,9 @@ describe 'nrpe::firewall' do
           :concat_basedir => '/tmp',
         })
       end
-      # it { is_expected.to compile.with_all_deps }
+      it { is_expected.to compile.with_all_deps }
       context 'when fed no parameters' do
-        # it { should create_class('nrpe::firewall') }
+        it { should create_class('nrpe::firewall') }
       end#no params
     end
   end

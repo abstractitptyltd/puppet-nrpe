@@ -1,5 +1,5 @@
 class nrpe::params (
-  $nagios_ips           = undef, # comma separated list of ips that can talk to nrpe
+  $nagios_ips           = [], # array of ips that can talk to nrpe
   $user                 = 'nrpe',
   $group                = 'nrpe',
   $port                 = 5666,
