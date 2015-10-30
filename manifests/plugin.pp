@@ -14,11 +14,10 @@ define nrpe::plugin (
     undef   => $nagios_plugins,
   }
 
-  file { "nrpe_plugin_${name}":
+  file { "/etc/nrpe.d/${name}.cfg":
     ensure  => $ensure,
-    name    => "/etc/nrpe.d/${name}.cfg",
-    owner   => root,
-    group   => root,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0644',
     content => template('nrpe/nrpe_service.cfg.erb'),
     notify  => Class['nrpe::service'],

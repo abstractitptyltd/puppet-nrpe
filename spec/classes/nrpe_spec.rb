@@ -30,6 +30,18 @@ describe 'nrpe' do
       # it { is_expected.to compile.with_all_deps }
       context 'when fed no parameters' do
         # it { should create_class('nrpe') }
+        it 'should include the nrpe::install class' do
+          should contain_class('nrpe::install').that_comes_before('Class[Nrpe::Config]')
+        end
+        it 'should include the nrpe::config class' do
+          should contain_class('nrpe::config').that_notifies('Class[Nrpe::Service]')
+        end
+        it 'should include the nrpe::service class' do
+          should contain_class('nrpe::service').that_comes_before('Class[Nrpe::Firewall]')
+        end
+        it 'should include the nrpe::firewall class' do
+          should contain_class('nrpe::firewall')
+        end
       end#no params
     end
   end

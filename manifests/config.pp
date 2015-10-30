@@ -13,10 +13,10 @@ class nrpe::config {
   $pid_file = $nrpe::params::pid_file
   $nagios_plugins = $::nrpe::params::nagios_plugins
 
-  file { 'nrpecfg':
-    name    => '/etc/nagios/nrpe.cfg',
-    owner   => nagios,
-    group   => nagios,
+  file { '/etc/nagios/nrpe.cfg':
+    ensure  => file,
+    owner   => 'nagios',
+    group   => 'nagios',
     mode    => '0644',
     content => template('nrpe/nrpe.cfg.erb'),
     notify  => Class['nrpe::service'],
@@ -24,9 +24,9 @@ class nrpe::config {
 
   file { '/etc/nrpe.d':
     ensure => directory,
-    owner  => nagios,
-    group  => nagios,
-    mode   => '0644',
+    owner  => 'nagios',
+    group  => 'nagios',
+    mode   => '0755',
   }
 
 }

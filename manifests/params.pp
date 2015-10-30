@@ -6,7 +6,7 @@ class nrpe::params (
   $command_timeout      = 180,
   $firewall             = false, # # disabling this for now
   $nagios_extra_plugins = undef,) {
-  $nagios_plugins = $::architecture ? {
+  $nagios_plugins = $::hardwaremodel ? {
     'x86_64' => '/usr/lib64/nagios/plugins',
     default  => '/usr/lib/nagios/plugins'
   }
